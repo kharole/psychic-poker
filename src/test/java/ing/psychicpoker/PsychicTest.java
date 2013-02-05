@@ -1,12 +1,11 @@
 package ing.psychicpoker;
 
-import com.google.common.primitives.Ints;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.List;
 
-import static junit.framework.Assert.*;
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 
 public class PsychicTest {
 
@@ -35,8 +34,7 @@ public class PsychicTest {
     @Test
     public void getAllHands() {
         List<Hand> hands = Psychic.getAllHands("TH JH QC QD QS", "QH KH AH 2S 6S");
-        int l = 1 << Hand.HAND_SIZE;
-        assertEquals(l, hands.size());
+        assertEquals(1 << Hand.HAND_SIZE, hands.size());
         assertTrue(hands.contains(Hand.valueOf("TH JH QC QD QS")));
         assertTrue(hands.contains(Hand.valueOf("TH JH QC QD QS")));
         assertTrue(hands.contains(Hand.valueOf("QH KH AH 2S QS")));
