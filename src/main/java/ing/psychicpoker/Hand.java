@@ -34,12 +34,12 @@ public class Hand implements Comparable<Hand> {
     private Card[] cards;
     private Category category;
 
-    public static Card[] stringToCards(String str) {
+    public static List<Card> stringToCards(String str) {
         List<Card> cards = new ArrayList<Card>(HAND_SIZE);
         for (String s: Splitter.on(' ').split(str)){
             cards.add(Card.valueOf(s));
         }
-        return cards.toArray(new Card[] {});
+        return cards;
     }
 
     public static Hand valueOf(String str) {
@@ -129,10 +129,6 @@ public class Hand implements Comparable<Hand> {
         }
     }
 
-    public Card[] getCards() {
-        return Arrays.copyOf(cards, HAND_SIZE);
-    }
-
     public boolean equals(Object o) {
         if(!(o instanceof Hand))
             return false;
@@ -148,7 +144,6 @@ public class Hand implements Comparable<Hand> {
         return Joiner.on(' ').join(cards);
     }
 
-    @Override
     public int compareTo(Hand hand) {
         return this.getCategory().compareTo(hand.getCategory());
     }

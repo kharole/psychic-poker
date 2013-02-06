@@ -4,9 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.primitives.Ints;
 import org.junit.Test;
 
-import java.util.List;
-
-import static junit.framework.Assert.*;
+import static org.junit.Assert.*;
 
 public class HandTest {
 
